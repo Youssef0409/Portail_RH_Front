@@ -1,0 +1,93 @@
+<head><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+  <div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2" style="color: azure">Demandes D'Avances Salaires</div>
+
+
+
+    <div class="mydict">
+        <div>
+          
+          <label>
+            <input type="radio" name="radio" [(ngModel)]="selectedOption" value="En Cours" (change)="onRadioChange()">
+            <span>En Cours</span>
+          </label>
+          <label>
+            <input type="radio" name="radio" [(ngModel)]="selectedOption" value="Valider" (change)="onRadioChange()">
+            <span>Valider</span>
+          </label>
+          <label>
+            <input type="radio" name="radio" [(ngModel)]="selectedOption" value="Annuler" (change)="onRadioChange()">
+            <span>Annuler</span>
+          </label>
+        </div>
+      </div>
+
+
+<body>
+    <br>
+    <div class="container">
+    <div class="col-md-12">
+        <div class="card b-1 hover-shadow mb-20" *ngFor="let dataitem of ListDemande">
+            <div class="media card-body">
+                <div class="media-left pr-12">
+                    <img class="avatar avatar-xl no-radius" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+                </div>
+                <div class="media-body">
+                    <div class="mb-2">
+                        <span class="fs-20 pr-16">Hossein Shams</span>
+                    </div>
+                    <small class="fs-16 fw-300 ls-1">Front-end developer</small>
+                </div>
+
+
+                
+                <div class="media-right text-right d-none d-md-block">
+                         
+                    <p class="fs-14 text-fade mb-12">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <i class="fa fa-map-marker pr-1"></i> Menlo Park, CA</p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <span class="text-fade"><i class="fa fa-money pr-1">
+                         
+                    </i> $60 per hour</span>
+                </div>
+            </div>
+            <footer class="card-footer flexbox align-items-center">
+                <div>
+                    <strong>Applied on:</strong>
+                    <span>21 Jan, 2017</span>
+                </div>
+                <div class="card-hover-show">
+                    <a class="btn btn-xs fs-10 btn-bold btn-info" (click)="update(dataitem)">Voir Détails</a>&nbsp;&nbsp;
+                    <a class="btn btn-xs fs-10 btn-bold btn-primary"  (click)="validerdemande(dataitem.id)"  *ngIf="dataitem.statut === 'EN_ATTENTE' || dataitem.statut === 'REFUSEE'" data-toggle="modal" data-target="#modal-contact">Accepeter</a>
+                    &nbsp;&nbsp;    <a class="btn btn-xs fs-10 btn-bold btn-warning"  *ngIf="dataitem.statut === 'EN_ATTENTE' || dataitem.statut === 'APPROUVEE'"  (click)="Annulerdemande(dataitem.id)">Refuser</a>
+                </div>
+            </footer>
+        </div>
+    
+   
+       
+    
+     
+    
+        <br>
+    </div>
+    </div>
+
+  </body>
+
+
+</div>
+</mat-drawer-content>
+</mat-drawer-container>

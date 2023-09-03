@@ -1,0 +1,68 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+  <div class="container-fluid page">
+   <div class="d-flex page__box p-3 mt-2" style="color: azure">Statistiques</div>
+<br>
+<h3>{{ chartOptions.chartTitle }}</h3>
+   <ngx-charts-bar-vertical
+   [view]="chartOptions.view"
+   [scheme]="chartOptions.colorScheme || 'cool'"
+   [results]="chartData"
+   [xAxis]="chartOptions.showXAxis"
+   [yAxis]="chartOptions.showYAxis"
+   [gradient]="chartOptions.gradient"
+   [legend]="chartOptions.showLegend" 
+   [showXAxisLabel]="chartOptions.showXAxisLabel"
+   [xAxisLabel]="chartOptions.xAxisLabel"
+   [showYAxisLabel]="chartOptions.showYAxisLabel"
+   [yAxisLabel]="chartOptions.yAxisLabel"
+ >
+ </ngx-charts-bar-vertical>
+
+ <h3>{{ chartOptions1.chartTitle }}</h3>
+ <ngx-charts-bar-vertical
+ [view]="chartOptions1.view"
+ [scheme]="chartOptions1.colorScheme || 'cool'"
+ [results]="chartData1"
+ [xAxis]="chartOptions1.showXAxis"
+ [yAxis]="chartOptions1.showYAxis"
+ [gradient]="chartOptions1.gradient"
+ [legend]="chartOptions1.showLegend" 
+ [showXAxisLabel]="chartOptions1.showXAxisLabel"
+ [xAxisLabel]="chartOptions1.xAxisLabel"
+ [showYAxisLabel]="chartOptions1.showYAxisLabel"
+ [yAxisLabel]="chartOptions1.yAxisLabel"
+>
+</ngx-charts-bar-vertical>
+ 
+
+<h3>{{ chartOptions2.chartTitle }}</h3>
+<ngx-charts-bar-vertical
+[view]="chartOptions2.view"
+[scheme]="chartOptions2.colorScheme || 'cool'"
+[results]="chartData2"
+[xAxis]="chartOptions2.showXAxis"
+[yAxis]="chartOptions2.showYAxis"
+[gradient]="chartOptions2.gradient"
+[legend]="chartOptions2.showLegend" 
+[showXAxisLabel]="chartOptions2.showXAxisLabel"
+[xAxisLabel]="chartOptions2.xAxisLabel"
+[showYAxisLabel]="chartOptions2.showYAxisLabel"
+[yAxisLabel]="chartOptions2.yAxisLabel"
+>
+</ngx-charts-bar-vertical>
+
+
+
+    
+</div>
+
+
+
+</mat-drawer-content>
+</mat-drawer-container>

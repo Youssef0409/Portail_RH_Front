@@ -1,0 +1,41 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body><div id="content" #content>
+    <div class="container">
+      <h1>Attestation de Travail</h1>
+      <div class="logo">
+        <img src="assets/login1.png" alt="Company Logo">
+      </div>
+      <div class="info-section">
+        <span class="info-label">Employee Name: &emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.user.firstname}} {{dialogData.dataitem.user.lastname}}</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Employee ID:&emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.user.id}}</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Position:&emsp;&emsp;</span>
+        <span class="info-value">Software Developer</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Employment Period:&emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.dateDebutTravail | date: 'yyyy-MM-dd'}}</span>
+      </div>
+      <div class="signature">
+        <p>________________________</p>
+        <p>Authorized Signature</p>
+      </div>
+    </div>
+  </div>
+    <a  (click)="makePDf()"
+    class="btn btn-dark btn-lg card-footer-btn justify-content-center text-uppercase-bold-sm hover-lift-light" >
+      <span class="svg-icon text-white me-2">
+      </span>
+      Génere PDF
+    </a>
+
+
+  
+    </body> 
+ 

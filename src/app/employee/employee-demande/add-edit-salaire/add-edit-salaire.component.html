@@ -1,0 +1,82 @@
+<div class="dialog-container">
+    <h1>Avance Salaire</h1>
+    <form class="form-container" [formGroup]="registrationForm" (ngSubmit)="register()">
+     
+        
+      
+    
+
+         
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Date Demande</mat-label>
+          <input matInput type="date"    [(ngModel)]="avanceSalaire.dateDemande" name="dateDemande"   required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('dateDemande').invalid && registrationForm.get('dateDemande').touched">
+          <div *ngIf="registrationForm.get('dateDemande').errors?.required">
+            Date is required.
+          </div>
+        
+        </div>
+    
+      </div>
+
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Montant Demandé</mat-label>
+          <input matInput type="number"  [(ngModel)]="avanceSalaire.montantDemande" name="montantDemande" required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('montantDemande').invalid && registrationForm.get('montantDemande').touched">
+          Last Name is required.
+        </div>
+      </div>
+
+
+      
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Justificatif</mat-label>
+          <input matInput type="text"  [(ngModel)]="avanceSalaire.justificatif" name="justificatif" required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('justificatif').invalid && registrationForm.get('justificatif').touched">
+          Last Name is required.
+        </div>
+      </div>
+
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Date Remboursement</mat-label>
+          <input matInput type="date"    [(ngModel)]="avanceSalaire.dateRemboursement" name="dateRemboursement"   required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('dateRemboursement').invalid && registrationForm.get('dateRemboursement').touched">
+          <div *ngIf="registrationForm.get('dateRemboursement').errors?.required">
+            Date is required.
+          </div>
+        
+        </div>
+    
+      </div>
+
+     
+
+
+
+
+    
+
+      <div class="error-message" *ngIf="registrationForm.invalid && registrationForm.dirty">
+        Please fill in all required fields before submitting the form.
+      </div>
+     
+      <div class="dialog-actions">
+        <button type="button" class="btn-cancel" (click)="dialogRef.close()">Fermer</button>
+
+        <button mat-raised-button color="primary" type="submit" class="btn-submit" >Enregistrer</button>
+      </div>
+   </form>
+  </div>
+  
+
+

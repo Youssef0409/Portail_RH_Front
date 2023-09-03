@@ -1,0 +1,66 @@
+<div class="dialog-container">
+    <h1>Demande Congé</h1>
+    <form class="form-container" [formGroup]="registrationForm" (ngSubmit)="register()">
+     
+        
+      
+    
+
+         
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Date Debut</mat-label>
+          <input matInput type="date"    [(ngModel)]="demandeConge.dateDebut" name="dateDebut"   required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('dateDebut').invalid && registrationForm.get('dateDebut').touched">
+          <div *ngIf="registrationForm.get('dateDebut').errors?.required">
+            Date is required.
+          </div>
+        
+        </div>
+    
+      </div>
+
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Date Fin</mat-label>
+          <input matInput type="date"    [(ngModel)]="demandeConge.dateFin" name="dateFin"   required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('dateFin').invalid && registrationForm.get('dateFin').touched">
+          <div *ngIf="registrationForm.get('dateFin').errors?.required">
+            Date is required.
+          </div>
+        
+        </div>
+    
+      </div>
+
+
+
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <mat-select [(ngModel)]="demandeConge.type" name="type" required>
+            <mat-option value="CONGE_PAYE">Congé Payant</mat-option>
+            <mat-option value="CONGE_MALADIE">Congé Maladie</mat-option>
+            <mat-option value="CONGE_PERSONNEL">Congé Personnel</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <br>
+    
+
+      <div class="error-message" *ngIf="registrationForm.invalid && registrationForm.dirty">
+        Please fill in all required fields before submitting the form.
+      </div>
+     
+      <div class="dialog-actions">
+        <button type="button" class="btn-cancel" (click)="dialogRef.close()">Fermer</button>
+
+        <button mat-raised-button color="primary" type="submit" class="btn-submit" >Enregistrer</button>
+      </div>
+   </form>
+  </div>
+  

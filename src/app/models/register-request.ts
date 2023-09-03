@@ -1,0 +1,14 @@
+import { Role } from "./role";
+
+export interface RegisterRequest {
+    firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  naissance: Date;
+  role: Role;
+  telephone : string;
+  
+ 
+  
+}

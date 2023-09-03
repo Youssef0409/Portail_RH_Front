@@ -1,0 +1,93 @@
+<div class="dialog-container">
+    <h1>Attestation</h1>
+    <form class="form-container" [formGroup]="registrationForm" (ngSubmit)="register()">
+     
+        
+      
+    
+
+         
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Date Demande</mat-label>
+          <input matInput type="date"    [(ngModel)]="attestation.dateDemande" name="dateDemande"   required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('dateDemande').invalid && registrationForm.get('dateDemande').touched">
+          <div *ngIf="registrationForm.get('dateDemande').errors?.required">
+            Date is required.
+          </div>
+        
+        </div>
+    
+      </div>
+
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Details</mat-label>
+          <input matInput type="text"  [(ngModel)]="attestation.details" name="details" required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('details').invalid && registrationForm.get('details').touched">
+          Last Name is required.
+        </div>
+      </div>
+
+
+      
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Motif</mat-label>
+          <input matInput type="text"  [(ngModel)]="attestation.motif" name="motif" required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('motif').invalid && registrationForm.get('motif').touched">
+          Last Name is required.
+        </div>
+      </div>
+
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Date Debut Travail</mat-label>
+          <input matInput type="date"    [(ngModel)]="attestation.dateDebutTravail" name="dateDebutTravail"   required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('dateDebutTravail').invalid && registrationForm.get('dateDebutTravail').touched">
+          <div *ngIf="registrationForm.get('dateDebutTravail').errors?.required">
+            Date is required.
+          </div>
+        
+        </div>
+    
+      </div>
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Date Fin Travail</mat-label>
+          <input matInput type="date"    [(ngModel)]="attestation.dateFinTravail" name="dateFinTravail"   required>
+        </mat-form-field>
+        <div *ngIf="registrationForm.get('dateFinTravail').invalid && registrationForm.get('dateFinTravail').touched">
+          <div *ngIf="registrationForm.get('dateFinTravail').errors?.required">
+            Date is required.
+          </div>
+        
+        </div>
+    
+      </div>
+
+
+
+
+    
+
+      <div class="error-message" *ngIf="registrationForm.invalid && registrationForm.dirty">
+        Please fill in all required fields before submitting the form.
+      </div>
+     
+      <div class="dialog-actions">
+        <button type="button" class="btn-cancel" (click)="dialogRef.close()">Fermer</button>
+
+        <button mat-raised-button color="primary" type="submit" class="btn-submit" >Enregistrer</button>
+      </div>
+   </form>
+  </div>
+  
+

@@ -1,0 +1,34 @@
+
+<body>
+    <div class="container">
+      <h1>Attestation de Travail</h1>
+      <div class="logo">
+        <img src="assets/login1.png" alt="Company Logo">
+      </div>
+      <div class="info-section">
+        <span class="info-label">Employee Name: &emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.user.firstname}} {{dialogData.dataitem.user.lastname}}</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">ID:&emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.user.id}}</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Position:&emsp;&emsp;</span>
+        <span class="info-value">Software Developer</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Montant Demandé&emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.montantDemande}}</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Date de Remboursement &emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.dateRemboursement | date: 'yyyy-MM-dd'}}</span>
+      </div>
+      <div class="signature">
+        <p>________________________</p>
+        <p>Authorized Signature</p>
+      </div>
+    </div>
+    
+    </body>

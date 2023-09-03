@@ -1,0 +1,43 @@
+
+<body>
+    <div class="container">
+      <h1>Attestation de Travail</h1>
+      <div class="logo">
+        <img src="assets/login1.png" alt="Company Logo">
+      </div>
+      <div class="info-section">
+        <span class="info-label">Employee Name: &emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.user.firstname}} {{dialogData.dataitem.user.lastname}}</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Employee ID:&emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.user.id}}</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Position:&emsp;&emsp;</span>
+        <span class="info-value">Software Developer</span>
+      </div>
+      <div class="info-section">
+        <span class="info-label">Employment Period:&emsp;&emsp;</span>
+        <span class="info-value">{{dialogData.dataitem.dateDebutTravail | date: 'yyyy-MM-dd'}}</span>
+      </div>
+      <div class="signature">
+        <p>________________________</p>
+        <p>Authorized Signature</p>
+      </div>
+    </div>
+    <a  *ngIf="dialogData.dataitem.statut === 'EN_ATTENTE' || dialogData.dataitem.statut === 'REFUSEE'"
+    class="btn btn-dark btn-lg card-footer-btn justify-content-center text-uppercase-bold-sm hover-lift-light" (click)=" Accepterdemande(dialogData.dataitem.id)">
+      <span class="svg-icon text-white me-2">
+      </span>
+      Valider l'Attestation
+    </a>
+
+    <a *ngIf="dialogData.dataitem.statut === 'EN_ATTENTE' || dialogData.dataitem.statut === 'APPROUVEE'"
+      class="btn btn-dark btn-lg card-footer-btn justify-content-center text-uppercase-bold-sm hover-lift-light btn-custom-red"(click)="Annulerdemande(dialogData.dataitem.id)">
+      <span class="svg-icon text-white me-2">
+          
+      </span>
+      Refuser l'Attestation
+  </a>
+    </body>
